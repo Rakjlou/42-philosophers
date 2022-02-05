@@ -1,0 +1,10 @@
+*.o
+*.d
+*.a
+*.sublime*
+*.*.swp
+*.swp
+philo/philo
+log
+so_long
+spritesheet/
