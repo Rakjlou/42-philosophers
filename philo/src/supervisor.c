@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 21:30:05 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/04 23:45:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/05 01:10:10 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	*supervisor(void *raw_game)
 			if (!is_eating(philo) && since_last_meal > time_to_die)
 			{
 				log_action(&game->philos[i], DEATH_MSG);
+				printf("%lu / %lu\n", since_last_meal, time_to_die);
 				game_stop(game);
 			}
 			++i;
