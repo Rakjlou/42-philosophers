@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:51:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 20:49:34 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:11:52 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	*philosopher(void *raw_philo)
 		philo_eat(philo);
 		philo_sleep(philo);
 		log_action(philo, THINKING_MSG);
+		usleep(200);
 	}
 	return (NULL);
 }
