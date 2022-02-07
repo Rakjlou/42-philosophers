@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/07 22:51:41 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/07 22:59:16 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = philo
 TEST_CMD = ./philo 5 800 200 200
 
 SRC = src/minilibft/ft_atol.c \
+	src/minilibft/ft_isnum.c \
 	src/main.c \
 	src/utils.c \
 	src/utils_philo.c \
@@ -29,7 +30,7 @@ OBJ = $(SRC:.c=.o)
 DEP = $(SRC:.c=.d)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pedantic -MMD -fsanitize=thread \
+CFLAGS = -Wall -Wextra -Werror -MMD -pedantic -fsanitize=thread \
 			-I . \
 			-I inc/ \
 

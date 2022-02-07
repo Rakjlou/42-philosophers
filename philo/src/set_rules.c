@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 22:39:57 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/05 00:00:19 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 22:58:32 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,30 @@
 #include "minilibft.h"
 #include <stddef.h>
 
+static int	rules_are_valid(int ac, char **av)
+{
+	if (ac == 5)
+	{
+		return (
+			ft_isnum(av[1])
+			&& ft_isnum(av[2])
+			&& ft_isnum(av[3])
+			&& ft_isnum(av[4])
+		);
+	}
+	return (
+		ft_isnum(av[1])
+		&& ft_isnum(av[2])
+		&& ft_isnum(av[3])
+		&& ft_isnum(av[4])
+		&& ft_isnum(av[5])
+	);
+}
+
 int	set_rules(t_game *game, int ac, char **av)
 {
+	if (!rules_are_valid(ac, av))
+		return (0);
 	game->rules.count = ft_atol(av[1]);
 	game->rules.time_to_die = ft_atol(av[2]);
 	game->rules.time_to_eat = ft_atol(av[3]);
