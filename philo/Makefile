@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/07 22:59:16 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/07 23:01:57 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,13 @@ OBJ = $(SRC:.c=.o)
 DEP = $(SRC:.c=.d)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -MMD -pedantic -fsanitize=thread \
+CFLAGS = -Wall -Wextra -Werror -MMD -pedantic \
 			-I . \
 			-I inc/ \
 
 LDFLAGS = \
 
-LDLIBS = -pthread -ltsan \
+LDLIBS = -pthread \
 
 all: $(NAME)
 
