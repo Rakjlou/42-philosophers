@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 23:38:33 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/05 00:07:29 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:41:31 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,15 @@ void	set_sleeping(t_philosopher *philo, unsigned int value)
 
 void	philo_wait(long value)
 {
-	usleep(value * 1000);
+	unsigned long	start;
+	unsigned long	now;
+
+	start = mstimestamp();
+	while (42)
+	{
+		usleep(100);
+		now = mstimestamp();
+		if (now - start >= (unsigned long)value)
+			break ;
+	}
 }

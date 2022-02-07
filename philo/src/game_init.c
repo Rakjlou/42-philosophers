@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:53:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/05 00:07:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:01:41 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ int	game_init(t_game *game)
 		&& init_philos(game)
 		&& dispatch_forks(game))
 	{
+		game->continues = 1;
 		game->start = mstimestamp();
 		return (1);
 	}

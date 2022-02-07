@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 23:01:23 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/04 23:31:11 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:05:32 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 static int	start_philos(t_game *game)
 {
@@ -37,6 +38,7 @@ static int	start_philos(t_game *game)
 				pthread_join(game->philos[i].thread, NULL);
 			return (0);
 		}
+		usleep(200);
 		++i;
 	}
 	return (1);
