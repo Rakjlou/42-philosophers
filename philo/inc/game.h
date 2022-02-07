@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 22:38:11 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 19:26:59 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:58:39 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@ typedef struct s_philosopher
 {
 	unsigned int	name;
 	unsigned int	ate;
-	unsigned int	is_eating;
-	unsigned int	is_sleeping;
 	unsigned long	last_meal;
-	pthread_mutex_t	eating;
-	pthread_mutex_t	sleeping;
 	pthread_mutex_t	meal;
 	pthread_t		thread;
 	t_fork			*lfork;
@@ -77,10 +73,6 @@ void			game_stop(t_game *game);
 void			*philosopher(void *raw_philo);
 void			*supervisor(void *raw_game);
 
-unsigned int	is_eating(t_philosopher *philo);
-unsigned int	is_sleeping(t_philosopher *philo);
-void			set_eating(t_philosopher *philo, unsigned int value);
-void			set_sleeping(t_philosopher *philo, unsigned int value);
 unsigned long	get_last_meal(t_philosopher *philo);
 void			set_last_meal(t_philosopher *philo, unsigned long value);
 void			philo_wait(long value);

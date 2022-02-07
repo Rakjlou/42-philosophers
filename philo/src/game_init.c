@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 22:53:36 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 20:01:41 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:59:04 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,9 @@ static int	init_philos(t_game *game)
 		philo->name = i + 1;
 		philo->ate = 0;
 		philo->last_meal = 0;
-		philo->is_eating = 0;
-		philo->is_sleeping = 0;
 		philo->game = (void *)game;
-		if (pthread_mutex_init(&philo->eating, NULL) != 0
-			|| pthread_mutex_init(&philo->meal, NULL) != 0
-			|| pthread_mutex_init(&philo->sleeping, NULL) != 0)
-			return (printf("Couldn't create eating and sleeping mutexes\n"), 0);
+		if (pthread_mutex_init(&philo->meal, NULL) != 0)
+			return (printf("Couldn't create eating mutex\n"), 0);
 		game->forks[i].index = i;
 		++i;
 	}

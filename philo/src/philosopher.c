@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:51:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/05 01:18:04 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 20:49:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ static void	do_eat(t_philosopher *philo)
 
 	game = (t_game *)philo->game;
 	log_action(philo, EATING_MSG);
-	set_eating(philo, 1);
 	set_last_meal(philo, mstimestamp());
 	philo_wait(game->rules.time_to_eat);
-	set_eating(philo, 0);
 }
 
 static void	philo_eat(t_philosopher *philo)
@@ -52,10 +50,8 @@ void	*philosopher(void *raw_philo)
 	while (game_continues(philo))
 	{
 		philo_eat(philo);
-		if (game_continues(philo))
-			philo_sleep(philo);
-		if (game_continues(philo))
-			log_action(philo, THINKING_MSG);
+		philo_sleep(philo);
+		log_action(philo, THINKING_MSG);
 	}
 	return (NULL);
 }
