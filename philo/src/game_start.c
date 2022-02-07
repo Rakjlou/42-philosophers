@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 23:01:23 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 22:21:15 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/08 00:34:14 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 #include <string.h>
 #include <unistd.h>
 
-static int	start_philos(t_game *game)
+static int	start_philos_step(t_game *game, long start)
 {
 	t_philosopher	*philo;
 	long			i;
 
-	i = 0;
+	i = start;
 	while (i < game->rules.count)
 	{
 		philo = &game->philos[i];
@@ -38,9 +38,17 @@ static int	start_philos(t_game *game)
 				pthread_join(game->philos[i].thread, NULL);
 			return (0);
 		}
-		usleep(200);
-		++i;
+		i += 2;
+		usleep(100);
 	}
+	return (1);
+}
+
+static int	start_philos(t_game *game)
+{
+	start_philos_step(game, 0);
+	usleep(500);
+	start_philos_step(game, 1);
 	return (1);
 }
 
