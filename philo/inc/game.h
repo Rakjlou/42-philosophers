@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 22:38:11 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 21:59:00 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 22:52:10 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ typedef struct s_philosopher
 	unsigned int	name;
 	unsigned int	ate;
 	unsigned long	last_meal;
-	pthread_mutex_t	meal;
 	pthread_t		thread;
+	pthread_mutex_t	meal;
+	pthread_mutex_t	ate_mutex;
 	t_fork			*lfork;
 	t_fork			*rfork;
 	void			*game;
@@ -75,6 +76,8 @@ void			*supervisor(void *raw_game);
 
 unsigned long	get_last_meal(t_philosopher *philo);
 void			set_last_meal(t_philosopher *philo, unsigned long value);
+unsigned int	get_ate(t_philosopher *philo);
+void			incr_ate(t_philosopher *philo);
 void			philo_wait(long value);
 
 int				get_forks(t_philosopher *philo);
@@ -83,6 +86,5 @@ void			release_forks(t_philosopher *philo);
 void			log_action(t_philosopher *philo, const char *msg);
 unsigned long	ms_since_last_meal(t_philosopher *philo);
 unsigned long	mstimestamp(void);
-
 
 #endif

@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/07 22:00:23 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/07 22:51:41 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ SRC = src/minilibft/ft_atol.c \
 	src/main.c \
 	src/utils.c \
 	src/utils_philo.c \
-	src/utils_philo2.c \
 	src/utils_forks.c \
 	src/set_rules.c \
 	src/philosopher.c \
