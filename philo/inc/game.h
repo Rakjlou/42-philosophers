@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 22:38:11 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 20:58:39 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:59:00 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ unsigned long	get_last_meal(t_philosopher *philo);
 void			set_last_meal(t_philosopher *philo, unsigned long value);
 void			philo_wait(long value);
 
-void			get_forks(t_philosopher *philo);
+int				get_forks(t_philosopher *philo);
 void			release_forks(t_philosopher *philo);
 
 void			log_action(t_philosopher *philo, const char *msg);

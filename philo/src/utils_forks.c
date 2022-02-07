@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 23:55:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/04 23:58:18 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:59:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ static void	sort_forks(t_philosopher *philo, t_fork **first, t_fork **second)
 	}
 }
 
-void	get_forks(t_philosopher *philo)
+int	get_forks(t_philosopher *philo)
 {
 	t_fork	*first;
 	t_fork	*second;
 
 	sort_forks(philo, &first, &second);
+	if (first == second)
+		return (0);
 	pthread_mutex_lock(&first->lock);
 	log_action(philo, FORK_MSG);
 	pthread_mutex_lock(&second->lock);
 	log_action(philo, FORK_MSG);
+	return (1);
 }
 
 void	release_forks(t_philosopher *philo)
