@@ -5,6 +5,7 @@
 *.*.swp
 *.swp
 philo/philo
+philo_bonus/philo
 log
 so_long
 spritesheet/
