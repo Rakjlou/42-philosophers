@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:38:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/08 01:01:59 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/07 21:50:35 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 static int	print_arg_error(void)
 {
 	printf(
-		"%s\n%s\n%s\n",
+		"%s\n%s\n",
 		"Error",
-		"All arguments must be positive numbers",
-		"Or less likely, gettimeofday failed");
+		"All arguments must be positive numbers");
 	return (EXIT_FAILURE);
 }
 

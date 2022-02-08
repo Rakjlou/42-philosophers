@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnum.c                                         :+:      :+:    :+:   */
+/*   game_continues.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 22:56:03 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/07 20:54:18 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/02/07 21:26:37 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/02/07 23:09:41 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minilibft.h"
+#include "game.h"
+#include <stdio.h>
 
-static int	ft_isdigit(int c)
+int	game_continues(t_game *game)
 {
-	if (c >= '0' && c <= '9')
+	if (sem_wait(game->continues) == 0 && sem_post(game->continues) == 0)
 		return (1);
 	return (0);
-}
-
-int	ft_isnum(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]))
-			i++;
-		else
-			return (0);
-	}
-	return (1);
 }
